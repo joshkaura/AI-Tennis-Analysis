@@ -1,0 +1,7 @@
+# Model weights
+*.pt
+*.pth
+*.onnx
+*.weights
+*.engine
+*.tflite
