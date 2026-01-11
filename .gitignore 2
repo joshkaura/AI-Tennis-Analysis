@@ -5,9 +5,3 @@
 *.weights
 *.engine
 *.tflite
-
-# Secrets
-.env
-*.env
-.env.*
-secrets/
