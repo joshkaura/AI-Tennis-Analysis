@@ -14,7 +14,7 @@ def main():
     #Detect Players
     player_tracker = PlayerTracker(model_path='models/yolo11x.pt')
     player_detections = player_tracker.detect_frames(video_frames, 
-                                                     read_from_stub=False,
+                                                     read_from_stub=True,
                                                      stub_path='tracker_stubs/player_detections.pkl')
 
     #Draw Output
