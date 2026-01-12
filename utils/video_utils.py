@@ -23,4 +23,8 @@ def save_video(output_video_frames, output_video_path):
         out.write(frame)
     out.release()
 
+    print(f"Saved output video to: {output_video_path}")
+
+    return
+
 
