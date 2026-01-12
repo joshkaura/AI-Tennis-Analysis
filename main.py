@@ -9,6 +9,8 @@ from court_line_detector import CourtLineDetector
 
 import cv2
 
+from minicourt import MiniCourt
+
 
 def main():
     input_video_path = "input_videos/input_video.mp4"
@@ -46,6 +48,9 @@ def main():
     # Choose Players
     player_detections = player_tracker.choose_and_filter_players(court_keypoints, player_detections)
 
+    #Mini Court
+    mini_court = MiniCourt(video_frames[0])
+
     #Draw Output
     ##Draw Player Boxes
     output_video_frames = player_tracker.draw_bboxes(video_frames_copy, player_detections)
@@ -55,6 +60,9 @@ def main():
 
     #Draw Court Keypoints
     output_video_frames = court_line_detector.draw_keypoints_on_video(output_video_frames, court_keypoints) 
+
+    #Draw Mini Court
+    output_video_frames = mini_court.draw_mini_court(output_video_frames)
 
     #Draw Frame Number (top left corner)
     for i, frame in enumerate(output_video_frames):
