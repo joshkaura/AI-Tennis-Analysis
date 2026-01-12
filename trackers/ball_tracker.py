@@ -29,7 +29,7 @@ class BallTracker:
 
 
     def detect_frame(self, frame):
-        results = self.model.predict(frame, conf = 0.3, device = "mps")[0]
+        results = self.model.predict(frame, conf = 0.4, device = "mps")[0]
 
         ball_dict = {}
 
