@@ -60,4 +60,6 @@ class PlayerTracker:
                 cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0,0,255), 2)
             output_video_frames.append(frame)
 
+        print("Drawn Player Bounding Boxes")
+
         return output_video_frames
