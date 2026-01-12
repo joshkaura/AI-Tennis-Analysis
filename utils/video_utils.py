@@ -2,6 +2,10 @@ import cv2
 
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
+
+    if not cap.isOpened():
+        raise IOError(f"Cannot open video: {video_path}")
+                      
     frames = []
     while True:
         ret, frame = cap.read()
@@ -18,5 +22,5 @@ def save_video(output_video_frames, output_video_path):
     for frame in output_video_frames:
         out.write(frame)
     out.release()
-    
+
 
