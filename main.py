@@ -53,15 +53,19 @@ def main():
     #Mini Court
     mini_court = MiniCourt(video_frames[0])
 
+    #Detect Shots
+    ball_shot_frames = ball_tracker.get_ball_shot_frames(ball_detections)
+    print(f"{len(ball_shot_frames)} hits at frames: {ball_shot_frames}")
+
     # Convert positions to mini court positions
-    #player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates(player_detections, 
-    #                                                                                                      ball_detections,
-    #                                                                                                      court_keypoints)
+    player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates(player_detections, 
+                                                                                                          ball_detections,
+                                                                                                          court_keypoints)
     #print(ball_mini_court_detections)
      # *** Homography Version ***
-    player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates_homography(
-        player_detections, ball_detections, court_keypoints
-    )
+    #player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates_homography(
+    #    player_detections, ball_detections, court_keypoints
+    #)
 
     #Draw Output
     ##Draw Player Boxes
