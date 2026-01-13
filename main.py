@@ -39,6 +39,8 @@ def main():
     
     # Interpolate 
     ball_detections = ball_tracker.interpolate_ball_positions(ball_detections)
+
+    #print(ball_detections)
     
     # Court Line Detector
     court_model_path = "models/keypoints_model_best.pth"
@@ -51,6 +53,16 @@ def main():
     #Mini Court
     mini_court = MiniCourt(video_frames[0])
 
+    # Convert positions to mini court positions
+    #player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates(player_detections, 
+    #                                                                                                      ball_detections,
+    #                                                                                                      court_keypoints)
+    #print(ball_mini_court_detections)
+     # *** Homography Version ***
+    player_mini_court_detections, ball_mini_court_detections = mini_court.convert_bounding_boxes_to_mini_court_coordinates_homography(
+        player_detections, ball_detections, court_keypoints
+    )
+
     #Draw Output
     ##Draw Player Boxes
     output_video_frames = player_tracker.draw_bboxes(video_frames_copy, player_detections)
@@ -62,7 +74,17 @@ def main():
     output_video_frames = court_line_detector.draw_keypoints_on_video(output_video_frames, court_keypoints) 
 
     #Draw Mini Court
+    print("frames:", len(output_video_frames))
+    print("player positions:", len(player_mini_court_detections))
+    print("ball positions:", len(ball_mini_court_detections))
+
     output_video_frames = mini_court.draw_mini_court(output_video_frames)
+    #Draw Player Positions on Mini Court
+    output_video_frames = mini_court.draw_points_on_mini_court(output_video_frames, player_mini_court_detections)
+    #Draw Ball Position on Mini Court
+    output_video_frames = mini_court.draw_points_on_mini_court(output_video_frames, ball_mini_court_detections, color=(0,255,255))
+
+    #print(ball_mini_court_detections)
 
     #Draw Frame Number (top left corner)
     for i, frame in enumerate(output_video_frames):
