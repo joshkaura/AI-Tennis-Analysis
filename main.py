@@ -1,5 +1,4 @@
-from torch import true_divide
-import court_line_detector
+
 from utils import (read_video, 
                    save_video)
 
