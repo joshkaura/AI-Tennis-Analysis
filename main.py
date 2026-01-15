@@ -14,6 +14,7 @@ from minicourt import MiniCourt
 def main():
     input_video_path = "input_videos/input_video.mp4"
     output_video_path = "output_videos/output_video.avi"
+    save_sample = True
 
     homography = True
 
@@ -96,6 +97,10 @@ def main():
     #Draw Frame Number (top left corner)
     for i, frame in enumerate(output_video_frames):
         cv2.putText(frame, f"Frame: {i}", (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
+        
+        # Save a frame as an output sample:
+        if i == 10 and save_sample == True:
+            cv2.imwrite("output_videos/output_sample.jpg", frame)
 
     # Save Output
     save_video(output_video_frames, output_video_path)
