@@ -23,6 +23,11 @@ def main():
 
     video_frames_copy = video_frames.copy()
 
+    #save input sample
+    if save_sample:
+        cv2.imwrite("input_videos/image.jpg", video_frames_copy[10])
+    
+    
     #Player Tracker
     player_tracker = PlayerTracker(model_path='models/yolo11x.pt')
 
