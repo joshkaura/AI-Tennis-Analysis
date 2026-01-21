@@ -10,7 +10,7 @@
 - RANSAC homography for mapping the video of a game to a 2D simulated model.
 - Key analysis statistics extracted, such as shots and player movement.
 
-## 🖼️ Visual Results
+## Visual Results
 
 ### Input
 
