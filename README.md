@@ -1,4 +1,4 @@
-# AI-Tennis-Analysis
+# AI Tennis Analysis
 
 > Computer Vision model for analysis of a tennis game.
 
