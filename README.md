@@ -19,3 +19,9 @@
 ### Output
 
 ![Output](output_videos/output_sample.jpg)
+
+## Improvements
+
+- Extract further metrics such as shots detected, ball speed, player distance covered - display graphically and store in a .json file.
+- Classify shot types: serve, backhand, forehand, lob, dropshot etc.
+- Pose estimation for players - leverage an LLM to suggest improvements for losing shots/ poor shots.
